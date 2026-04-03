@@ -1,40 +1,29 @@
 // -----------------------------------------------------------------------
-//   Copyright (C) Rodrigo Almeida 2010
+//   Conversor Analógico-Digital (ADC)
+//   Autor: Rodrigo Maximiano Antunes de Almeida
+//   Adaptado para Arduino/PQDB
+//   Licença: GNU GPL 2
 // -----------------------------------------------------------------------
-//   Arquivo: adc.c
-//            Biblioteca do conversor AD para o PIC18F4520
-//   Autor:   Rodrigo Maximiano Antunes de Almeida
-//            rodrigomax at unifei.edu.br
-//   Licen�a: GNU GPL 2
-// -----------------------------------------------------------------------
-//   This program is free software; you can redistribute it and/or modify
-//   it under the terms of the GNU General Public License as published by
-//   the Free Software Foundation; version 2 of the License.
-//
-//   This program is distributed in the hope that it will be useful,
-//   but WITHOUT ANY WARRANTY; without even the implied warranty of
-//   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-//   GNU General Public License for more details.
+//   Leitura de sensores analógicos através do conversor AD do Arduino.
+//   Canais disponíveis: A0, A1, A2, A3
 // -----------------------------------------------------------------------
 
 #include "arduino.h"
 #include "ad.h"
 
-void adInit(void){
-   //não precisa configurar como output usando o framework do arduino
+// Mapeamento dos pinos analógicos para canais do ADC
+static const uint8_t pinMap[] = {A0, A1, A2, A3};
+
+// Inicializa o conversor AD
+void adInit(void) {
+    // O Arduino já configura o ADC automaticamente
 }
-int adRead(int channel)
-{
-  if(channel==0){
-   return analogRead(A0); 
-  }
-  if(channel==1){
-   return analogRead(A1); 
-  }
-  if(channel==2){
-   return analogRead(A2); 
-  }
-  if(channel==3){
-   return analogRead(A3); 
-  }
+
+// Lê o valor analógico do canal especificado (0-3)
+// Retorna -1 se o canal for inválido
+int adRead(int channel) {
+    if (channel < 0 || channel > 3) {
+        return -1;
+    }
+    return analogRead(pinMap[channel]);
 }

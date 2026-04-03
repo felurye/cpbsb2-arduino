@@ -18,7 +18,7 @@ void dsInit(void) {
 }
 void dsStartClock(void) {
 	int seconds;
-	//liga o 7o bit
+	// Liga o 7o bit
 	seconds = dsRead(SEC);
 	dsWrite(0x7f & seconds,SEC);
 	return;

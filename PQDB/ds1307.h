@@ -23,7 +23,7 @@ int bcd2dec(int value);
 void dsWrite(unsigned char value, int address);
 int dsRead(int address);
 
-//Macros para ler os valores já convertidos
+// Macros para ler os valores já convertidos
 #define getSeconds() (bcd2dec(dsRead(SEC)  & 0x7f))
 #define getMinutes() (bcd2dec(dsRead(MIN)  & 0x7f))
 #define getHours()   (bcd2dec(dsRead(HOUR) & 0x5f))

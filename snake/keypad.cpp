@@ -4,10 +4,10 @@
 
 static unsigned int keys;
 
-//vetor com o "nome" dos bot�es
+//vetor com o "nome" dos botões
 //U -> up, L -> left, D -> down, R -> right
 //S -> start, s -> select
-//a ordem � referente a posi��o dos bot�es
+//a ordem é referente a posição dos botões
 static const char charKey[] = {'U','L','D','R','S','S','S','A','B','s'};
 
 unsigned int kpRead(void) {

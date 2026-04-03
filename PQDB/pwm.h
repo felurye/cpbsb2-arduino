@@ -2,10 +2,10 @@
 //   Copyright (C) Rodrigo Almeida 2010
 // -----------------------------------------------------------------------
 //   Arquivo: pwm.h
-//            Header da biblioteca de acesso �s sa�das PWM do PIC18F4520
+//            Header da biblioteca de acesso às saídas PWM do PIC18F4520
 //   Autor:   Rodrigo Maximiano Antunes de Almeida
 //            rodrigomax at unifei.edu.br
-//   Licen�a: GNU GPL 2
+//   Licença: GNU GPL 2
 // -----------------------------------------------------------------------
 //   This program is free software; you can redistribute it and/or modify
 //   it under the terms of the GNU General Public License as published by

@@ -4,10 +4,10 @@
 
 static unsigned int keys;
 
-//vetor com o "nome" dos bot�es
-//U -> up, L -> left, D -> down, R -> right
-//S -> start, s -> select
-//a ordem � referente a posi��o dos bot�es
+// Vetor com o "nome" dos botões
+// U -> up, L -> left, D -> down, R -> right
+// S -> start, s -> select
+// A ordem é referente a posição dos botões
 static const char charKey[] = {'U','L','D','R','S','S','S','A','B','s'};
 
 unsigned int kpRead(void) {
@@ -16,16 +16,14 @@ unsigned int kpRead(void) {
 }
 char kpReadKey(void){
   int i;
-  
-      kpDebounce();                      //Realiza o Debounce do teclado
-    for (i = 0; i < 10; i++) {         //Varredura
-      if (kpRead() & (1 << i)) {       //Identifica qual tecla foi pressionada
-              Serial.println(i);
-      Serial.println(charKey[i]);
-        return charKey[i];             //Escreve qual tecla foi escrita
-  //nenhuma tecla pressionada
-}
+
+  kpDebounce();
+  for (i = 0; i < 10; i++) {
+    if (kpRead() & (1 << i)) {
+      return charKey[i];
     }
+  }
+  return 0;
 }
 
 void kpDebounce(void) {

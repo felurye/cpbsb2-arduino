@@ -17,7 +17,6 @@
 void pinMode(int pin, int type);
 void digitalWrite(int pin, int value);
 int digitalRead(int pin);
-
 */
 #define SDA_PIN 18
 #define SCL_PIN 19

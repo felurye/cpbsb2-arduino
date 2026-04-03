@@ -1,31 +1,32 @@
 #include "timer.h"
 #include "arduino.h"
 
-//guarda o tempo final da contagem
+// Tempo final da contagem (em milliseconds)
 unsigned long int targetTime;
 
-//configura tempo
-void timerStart(unsigned int time){
-	targetTime = millis() + time;
-}
-//aguarda fim da contagem
-void timerWait(void){
-	while(targetTime > millis());
-}
-//verifica se a contagem já terminou
-int timerFinished(void){
-	if (targetTime > millis()){
-		return 0;
-	}else{
-		return 1;
-	}
-}
-//gera um atraso de (time) milissegundos
-void timerDelay(unsigned int time){
-	timerStart(time);
-	timerWait();
+// Configura o timer para contar 'time' milissegundos
+void timerStart(unsigned int time) {
+    targetTime = millis() + time;
 }
 
-void timerInit(void){
-	//não precisa fazer nada, o arduino já inicializa o timer	
+// Aguarda até que a contagem termine
+void timerWait(void) {
+    while (targetTime > millis());
+}
+
+// Verifica se a contagem já terminou
+// Retorna 1 se o tempo passou, 0 se ainda está contando
+int timerFinished(void) {
+    return targetTime <= millis() ? 1 : 0;
+}
+
+// Gera um atraso bloqueante de 'time' milissegundos
+void timerDelay(unsigned int time) {
+    timerStart(time);
+    timerWait();
+}
+
+// Inicializa o timer
+void timerInit(void) {
+    // O Arduino já inicializa o timer automaticamente
 }
