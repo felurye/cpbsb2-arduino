@@ -17,9 +17,9 @@
 //   GNU General Public License for more details.
 // -----------------------------------------------------------------------
 #ifndef ADC_H
-	#define ADC_H
+#define ADC_H
 
-	void adInit(void);
-	int adRead(int channel);
+void adInit(void);
+int adRead(int channel);
 
 #endif

@@ -18,10 +18,10 @@
 // -----------------------------------------------------------------------
 
 #ifndef SERIAL_H
-	#define SERIAL_H
+#define SERIAL_H
 
-	void serialSend(unsigned char c);
-	unsigned char serialRead(void);
-	void serialInit(void);
+void serialSend(unsigned char c);
+unsigned char serialRead(void);
+void serialInit(void);
 
 #endif

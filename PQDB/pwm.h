@@ -20,11 +20,10 @@
 #ifndef PWM_H
 #define PWM_H
 
-  void pwmRed(unsigned char value);
-  void pwmGreen(unsigned char value);
-  void pwmBlue(unsigned char value);
-  void pwmBuzzer(unsigned int frequency);
-  void pwmInit(void);
+void pwmRed(unsigned char value);
+void pwmGreen(unsigned char value);
+void pwmBlue(unsigned char value);
+void pwmBuzzer(unsigned int frequency);
+void pwmInit(void);
 
-
-#endif //PWM_H
+#endif  // PWM_H

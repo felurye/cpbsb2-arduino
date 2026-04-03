@@ -1,6 +1,7 @@
 #include "keypad.h"
-#include "so.h"
+
 #include "io.h"
+#include "so.h"
 
 static unsigned int keys;
 
@@ -8,13 +9,11 @@ static unsigned int keys;
 // U -> up, L -> left, D -> down, R -> right
 // S -> start, s -> select
 // A ordem é referente a posição dos botões
-static const char charKey[] = {'U','L','D','R','S','S','S','A','B','s'};
+static const char charKey[] = {'U', 'L', 'D', 'R', 'S',
+                               'S', 'S', 'A', 'B', 's'};
 
-unsigned int kpRead(void) {
-
-    return keys;
-}
-char kpReadKey(void){
+unsigned int kpRead(void) { return keys; }
+char kpReadKey(void) {
   int i;
 
   kpDebounce();
@@ -27,29 +26,29 @@ char kpReadKey(void){
 }
 
 void kpDebounce(void) {
-    unsigned char i;
-    static unsigned char tempo;
-    static unsigned int newRead;
-    static unsigned int oldRead;
-    newRead = 0;
-    for(int i = 0; i<5; i++){
-      soWrite(1<<(i+3));
-      if(digitalRead(KEYPAD_1_PIN)){
-        bitSet(newRead,i);
-      }
-      if(digitalRead(KEYPAD_2_PIN)){
-        bitSet(newRead,i+5);
-      }
+  unsigned char i;
+  static unsigned char tempo;
+  static unsigned int newRead;
+  static unsigned int oldRead;
+  newRead = 0;
+  for (int i = 0; i < 5; i++) {
+    soWrite(1 << (i + 3));
+    if (digitalRead(KEYPAD_1_PIN)) {
+      bitSet(newRead, i);
     }
-    if (oldRead == newRead) {
-        tempo--;
-    } else {
-        tempo = 4;
-        oldRead = newRead;
+    if (digitalRead(KEYPAD_2_PIN)) {
+      bitSet(newRead, i + 5);
     }
-    if (tempo == 0) {
-        keys = oldRead;
-    }
+  }
+  if (oldRead == newRead) {
+    tempo--;
+  } else {
+    tempo = 4;
+    oldRead = newRead;
+  }
+  if (tempo == 0) {
+    keys = oldRead;
+  }
 }
 void kpInit(void) {
   soInit();
