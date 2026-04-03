@@ -1,8 +1,8 @@
 // -----------------------------------------------------------------------
 //   Copyright (C) Rodrigo Almeida 2010
 // -----------------------------------------------------------------------
-//   Arquivo: adc.h
-//            Header da biblioteca do conversor AD para o PIC18F4520
+//   Arquivo: serial.h
+//            Header da biblioteca da porta serial (USART) do PIC18F4520
 //   Autor:   Rodrigo Maximiano Antunes de Almeida
 //            rodrigomax at unifei.edu.br
 //   Licença: GNU GPL 2
@@ -16,10 +16,12 @@
 //   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 //   GNU General Public License for more details.
 // -----------------------------------------------------------------------
-#ifndef ADC_H
-	#define ADC_H
 
-	void adInit(void);
-	int adRead(int channel);
+#ifndef SERIAL_H
+	#define SERIAL_H
+
+	void serialSend(unsigned char c);
+	unsigned char serialRead(void);
+	void serialInit(void);
 
 #endif
